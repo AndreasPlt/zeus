@@ -7,6 +7,7 @@ import platform
 from dataclasses import dataclass, asdict, fields
 from functools import lru_cache
 
+from zeus.device.common import deprecated_alias
 from zeus.device.soc.common import SoC, SoCMeasurement, ZeusSoCInitError
 
 try:
@@ -22,7 +23,7 @@ except Exception:
         def __getattr__(self, name):
             """Raise an error if any method is called.
 
-            Since this class is only used when `zeus-apple-silicon` is notee
+            Since this class is only used when `zeus-apple-silicon` is not
             available, something has gone wrong if any method is called.
             """
             raise RuntimeError(
