@@ -22,7 +22,7 @@ except Exception:
         def __getattr__(self, name):
             """Raise an error if any method is called.
 
-            Since this class is only used when `zeus-apple-silicon` is not
+            Since this class is only used when `zeus-apple-silicon` is notee
             available, something has gone wrong if any method is called.
             """
             raise RuntimeError(
@@ -102,6 +102,7 @@ class AppleSiliconMeasurement(SoCMeasurement):
 
         return result
 
+    @deprecated_alias("zeroAllFields")
     def zero_all_fields(self) -> None:
         """Set the value of all fields in the measurement object to zero."""
         for field in fields(self):
